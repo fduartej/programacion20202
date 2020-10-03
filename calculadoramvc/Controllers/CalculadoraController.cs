@@ -28,7 +28,7 @@ namespace calculadoramvc.Controllers
             if("+".Equals(objCalculadora.Acccion)){
                 objCalculadora.Respuesta = objCalculadora.Operador1 + objCalculadora.Operador2;
             }
-            return View(objCalculadora);
+            return View("index", objCalculadora);
         }
 
     }
