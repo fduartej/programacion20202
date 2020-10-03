@@ -1,4 +1,6 @@
 using System;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace calculadoramvc.Models
 {
@@ -9,6 +11,7 @@ namespace calculadoramvc.Models
 
         public String Acccion { get; set; }
 
+        [Display(Name="Output")]
         public int Respuesta { get; set; }
 
     }
