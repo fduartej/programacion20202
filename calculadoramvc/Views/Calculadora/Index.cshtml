@@ -1,8 +1,35 @@
+@model calculadoramvc.Models.Calculadora
+
+
 @{
     ViewData["Title"] = "Calculadora Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Calculadora</h1>
+    <form asp-controller="Calculadora" asp-action="Calcular">
+            
+            <label>Operador1</label>
+            <input asp-for="Operador1"/>
+            <br/>
+
+            <label>Operador2</label>
+            <input asp-for="Operador2"/>
+            <br/>
+
+            <label>Operando</label>
+            <select asp-for="Acccion">
+                <option value="+">Suma</option>
+                <option value="-">Resta</option>
+                <option value="*">Multiplicacion</option>
+                <option value="/">Division</option>
+            </select>
+            <br/>
+            
+            <input type="submit" value="Calcular"/>
+    </form>
     
+    <td>@Html.DisplayNameFor(model => model.Respuesta)</td>
+    <td>@Html.DisplayTextFor(model => model.Respuesta)</td>
+
 </div>
