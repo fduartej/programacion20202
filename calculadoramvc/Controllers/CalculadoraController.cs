@@ -23,15 +23,13 @@ namespace calculadoramvc.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
+        [HttpPost]
+        public IActionResult Calcular(Calculadora objCalculadora){
+            if("+".Equals(objCalculadora.Acccion)){
+                objCalculadora.Respuesta = objCalculadora.Operador1 + objCalculadora.Operador2;
+            }
+            return View(objCalculadora);
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }
