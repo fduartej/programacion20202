@@ -1,0 +1,39 @@
+@model calculadoramvc.Models.Contacto
+
+@{
+    ViewData["Title"] = "Contacto";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Contacto</h1>
+    <form asp-controller="Contacto" asp-action="Registrar">
+            <label>@Html.DisplayNameFor(model => model.Name)</label>
+            <input asp-for="Name"/>
+            <br/>
+            
+            <label>@Html.DisplayNameFor(model => model.LastName)</label>
+            <input asp-for="LastName"/>
+            <br/>
+
+            <label>@Html.DisplayNameFor(model => model.Email)</label>
+            <input asp-for="Email"/>
+            <br/>
+
+            <label>@Html.DisplayNameFor(model => model.Phone)</label>
+            <input asp-for="Phone"/>
+            <br/>
+
+            <label>@Html.DisplayNameFor(model => model.Subject)</label>
+            <input asp-for="Subject"/>
+            <br/>
+
+            <label>@Html.DisplayNameFor(model => model.Message)</label>
+            <textarea asp-for="Subject"></textarea>
+            <br/>
+
+            <input type="submit" value="Registrar"/>
+    </form>
+    
+    <td>@Html.DisplayTextFor(model => model.Response)</td>
+
+</div>
