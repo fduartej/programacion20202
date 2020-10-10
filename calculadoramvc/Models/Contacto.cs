@@ -16,6 +16,7 @@ namespace calculadoramvc.Models
         [Display(Name="Email")]
         public String Email { get; set; }
 
+        [DataType(DataType.PhoneNumber)]
         [Display(Name="Telefono")]
         public int Phone { get; set; }
 
