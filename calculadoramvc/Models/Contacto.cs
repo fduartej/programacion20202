@@ -1,8 +1,10 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace calculadoramvc.Models
 {
+    [Table("t_contacto")]
     public class Contacto
     {
         [Required(ErrorMessage = "Por favor ingrese Nombre")]
