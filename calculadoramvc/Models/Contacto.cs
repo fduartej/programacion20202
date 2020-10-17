@@ -14,7 +14,7 @@ namespace calculadoramvc.Models
 
         [Required(ErrorMessage = "Por favor ingrese Nombre")]
         [Display(Name="Nombre")]
-         [Column("name")]
+         [Column("Name")]
         public String Name { get; set; }
 
 
@@ -40,6 +40,7 @@ namespace calculadoramvc.Models
         [Column("message")]
         public String Message { get; set; }
 
+        [NotMapped]
         public String Response { get; set; }
 
     }
