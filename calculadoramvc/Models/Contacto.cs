@@ -7,6 +7,11 @@ namespace calculadoramvc.Models
     [Table("t_contacto")]
     public class Contacto
     {
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("id")]
+        public int ID { get; set; }
+
         [Required(ErrorMessage = "Por favor ingrese Nombre")]
         [Display(Name="Nombre")]
         public String Name { get; set; }
