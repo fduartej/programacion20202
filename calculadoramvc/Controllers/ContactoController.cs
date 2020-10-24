@@ -30,15 +30,20 @@ namespace calculadoramvc.Controllers
             return View(listContactos);
         }
 
+        public IActionResult Create()
+        {
+            return View();
+        }
+
         [HttpPost]
-        public IActionResult Registrar(Contacto objContacto){
+        public IActionResult Create(Contacto objContacto){
             if (ModelState.IsValid)
             {
                 _context.Add(objContacto);
                 _context.SaveChanges();
                 objContacto.Response = "Gracias estamos en contacto";
             }
-            return View("index", objContacto);
+            return View(objContacto);
         }
 
     }
