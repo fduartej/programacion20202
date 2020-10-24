@@ -26,7 +26,8 @@ namespace calculadoramvc.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var listContactos=_context.Contactos.ToList();
+            return View(listContactos);
         }
 
         [HttpPost]
