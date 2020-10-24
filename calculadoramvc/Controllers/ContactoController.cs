@@ -46,5 +46,49 @@ namespace calculadoramvc.Controllers
             return View(objContacto);
         }
 
+        // GET: Contacto/Edit/5
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var contacto = await _context.Contactos.FindAsync(id);
+            if (contacto == null)
+            {
+                return NotFound();
+            }
+            return View(contacto);
+        }
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,LastName")] Contacto contacto)
+        {
+            if (id != contacto.ID)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(contacto);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    return NotFound();
+                    
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(contacto);
+        }
+        
+
+
     }
 }
