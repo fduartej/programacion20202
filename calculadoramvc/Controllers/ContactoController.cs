@@ -66,7 +66,7 @@ namespace calculadoramvc.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,LastName")] Contacto contacto)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,LastName,Email,Phone")] Contacto contacto)
         {
             if (id != contacto.ID)
             {
@@ -90,6 +90,15 @@ namespace calculadoramvc.Controllers
             return View(contacto);
         }
         
+
+        // GET: http://localhost:5000/Contacto/Delete/6 MUESTRA Contacto
+        public IActionResult Delete(int? id)
+        {
+            var contacto = _context.Contactos.Find(id);
+            _context.Contactos.Remove(contacto);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
 
 
     }
