@@ -26,7 +26,7 @@
     {
         <tr>
             <th scope="row">
-                #
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
             </th>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
